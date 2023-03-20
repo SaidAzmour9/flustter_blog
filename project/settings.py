@@ -37,6 +37,7 @@ ALLOWED_HOSTS = ['flustter.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -83,7 +84,7 @@ TEMPLATES = [
     },
 ]
 
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 WSGI_APPLICATION = 'project.wsgi.application'
 
 
@@ -140,6 +141,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     '/var/www/static/',
@@ -171,6 +173,5 @@ CKEDITOR_CONFIGS = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 django_heroku.settings(locals())
