@@ -171,4 +171,5 @@ CKEDITOR_CONFIGS = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 django_heroku.settings(locals())
