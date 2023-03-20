@@ -31,7 +31,7 @@ SECRET_KEY = '47823Bef80B47Aa4Ab122Af916F3F56Fa13A619D8Eee4357369A178230C291741C
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['flustter.herokuapp.com','http://127.0.0.1:8000/']
+ALLOWED_HOSTS = ['flustter.herokuapp.com/','http://127.0.0.1:8000/']
 
 
 # Application definition
