@@ -31,7 +31,7 @@ SECRET_KEY = '47823Bef80B47Aa4Ab122Af916F3F56Fa13A619D8Eee4357369A178230C291741C
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['flustter.herokuapp.com','https://flustter.herokuapp.com','http://127.0.0.1:8000/']
+ALLOWED_HOSTS = ['flustter.herokuapp.com','https://flustter.herokuapp.com','https://127.0.0.1']
 
 
 # Application definition
@@ -228,5 +228,7 @@ SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 SECURE_HSTS_PRELOAD = True
-
+ATOMIC_REQUESTS = True
+DISABLE_SERVER_SIDE_CURSORS = True
+APPEND_SLASH = False
 django_heroku.settings(locals())

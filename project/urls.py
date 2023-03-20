@@ -17,12 +17,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from . import views
 
+handler404 = views.handler404
+handler500 = views.handler500
 
 
 
 urlpatterns = [
-    path('home', include('blog.urls',namespace='blog')),
+    path('', include('blog.urls',namespace='blog')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('admin/', admin.site.urls),
