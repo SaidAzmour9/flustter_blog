@@ -31,7 +31,7 @@ SECRET_KEY = '47823Bef80B47Aa4Ab122Af916F3F56Fa13A619D8Eee4357369A178230C291741C
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['flustter.herokuapp.com','www.flustter.herokuapp.com']
+ALLOWED_HOSTS = ['flustter.herokuapp.com','https://flustter.herokuapp.com/']
 
 
 # Application definition
@@ -191,10 +191,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    '/var/www/static/',
-]
+
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
