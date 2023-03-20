@@ -1,0 +1,29 @@
+.lesson {
+    padding: 100px 0;
+    text-align: center;
+    font-weight: 700;
+    font-size: large;
+}
+.lesson img{
+    width: 90%;
+    height: 400px;
+    margin: auto;
+    margin-bottom: 15px;
+}
+
+.home-link{
+    text-align: right;
+    font-size: medium;
+    font-weight: 300;
+    color: #fff;
+}
+
+pre {
+    direction: ltr;
+    border: 1px white solid;
+    text-align: left;
+    background-color: black;
+    color: rgb(189, 156, 14);
+    border-radius: 5px;
+    padding: 3px;
+}

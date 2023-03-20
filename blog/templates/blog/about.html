@@ -1,0 +1,20 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  
+
+   
+
+  <section>
+      <!-- start sections -->
+      <div class="container text-center">
+        <div class="sections mt-5">
+          <h2 class="section-title mb-5"> {{ about.title }} </h2>
+          <hr class="mb-5">
+         <article class="pb-5 pt-5 fs-3"> {{ about.content | safe }} </article>
+        </div>
+      </div>
+      <!-- end section -->
+    </section>
+{% endblock content %}

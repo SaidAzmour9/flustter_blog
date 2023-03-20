@@ -1,0 +1,52 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  
+
+    <section>
+      <!-- start hero section -->
+      <div class="container">
+        <div class=" mt-5 hero">
+          <h1 class="mb-3" style="color: #5b8bdf;font-weight: bold;">فلاستر</h1>
+          <p>مدونة عربية متخصصة في دروس بايثون ، دجانغو، فلاتر </p>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="بحث" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">بحث</button>
+          </form>
+        </div>
+      </div>
+      
+      <!-- end hero section -->
+    </section>
+
+    <section>
+      <!-- start sections -->
+      <div class="container text-center">
+        <div class="sections mt-5">
+          <h2 class="section-title mb-3"> الدورات</h2>
+          <hr class="mb-4">
+          <div class="row">
+            {% for article in articles %}
+              <div class="col mb-3 mb-sm-2">
+              <div class="card bg-dark" style="width: 18rem; margin: auto;">
+                <h3 class="card-header">دورة بايثون</h3>
+                <img src="{% static "images/python.png" %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <p class="card-text">يتتي تتسه ستستستس ستستتست ستصعص سااسالاي اياايا استستتس تتتسست استستست.</p>
+                  <small style="color: gray;" >31 درس</small><br>
+                  <a href="{% url 'articles:article_detail' article.slug %}" class="btn btn-primary">استستس</a>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+             
+        </div>
+      </div>
+      <!-- end section -->
+    </section>
+
+   
+
+{% endblock content %}

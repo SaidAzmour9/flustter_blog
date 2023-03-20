@@ -1,0 +1,103 @@
+{% load bootstrap4 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.map' %}" >
+    <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/bootstrap.grid.min.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/bootstrap.grid.rtl.min.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/bootstrap-utilities.min.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/bootstrap-utilities.rtl.min.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/course.css' %}" >
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <!-- start navbar -->
+        <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+            <div class="container">
+              <a class="navbar-brand" href="#">
+                <img src="{% static 'images/logo.png' %}" alt="Bootstrap" width="80" height="27">
+                
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'blog:home' %}">الرئيسية</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blog:home' %}">مقالات</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'courses:courses_list' %}">دورات</a>  
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blog:about' %}">من نحن</a>  
+                  </li>
+            
+                  
+                </ul>
+                    {% if request.user.is_authenticated %}  
+                            <a href="{%url 'accounts:profile' %}"><button type="button" class="btn btn-primary btn-lg">{{user.username}}</button></a>
+                        {% else %}
+                        <a href="{% url 'accounts:login' %}"><button type="button" class="btn btn-primary btn-lg">دخول</button></a>
+
+                      {% endif %}
+              </div>
+            </div>
+          </nav>
+        <!-- end navbar -->
+    </header>
+   
+   {% block content %}
+   
+   {% endblock content %}
+
+
+    <footer>
+      <!-- start footer section -->
+      <div class="container">
+        <div class="footer-content">
+          <div class="about-me">
+            <img class="about-img" src="{% static "images/python.png" %}" alt="">
+            <div class="about-content">
+              <h3>عربية متخصصة</h3>
+              <p>مدونة عربية متخصصة  في دروس بايثون ، دجانغو  في دروس بايثون ، دجانغو  في دروس بايثون ، دجانغو في دروس بايثون ، دجانغو، فلاتر </p>
+            </div>
+          </div>
+          <div class="footer-links">
+            <h3>روابط هامة</h3>
+            <ul>
+              <li><a href="{% url 'blog:about' %}">من نحن</a></li>
+              <li><a href="{% url 'blog:privacy' %}"> سياسة الخصوصية </a></li>
+              <li><a href="{% url 'blog:terms' %}">الشروط والأحكام</a></li>
+              <li><a href="{% url 'blog:support' %}">دعمنا</a></li>
+              <li><a href="{% url 'contact:contact' %}">اتصل بنا</a></li>
+            </ul>
+          </div>
+        </div>
+        <h5>جميع الحقوق محفوظة &copy; 2023</h5>
+      </div>
+
+      <!-- end footer section -->
+    </footer>
+    
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.min.js.map'%}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js.map'%}"></script>
+    <script src="{% static 'js/bootstrap.esm.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.esm.min.js.map'%}"></script>
+    <script src="{% static 'js/fontawesome-all.min.js'%}"></script>
+
+</body>
+</html>

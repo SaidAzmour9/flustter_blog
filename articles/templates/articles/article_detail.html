@@ -1,0 +1,39 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  
+
+    <section>
+      <!-- start hero section -->
+      <div class="container">
+        <div class=" mt-5 hero">
+          <h1 class="mb-3" style="color: #5b8bdf;font-weight: bold;">فلاستر</h1>
+          <p>مدونة عربية متخصصة في دروس بايثون ، دجانغو، فلاتر </p>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="بحث" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">بحث</button>
+          </form>
+        </div>
+      </div>
+      
+      <!-- end hero section -->
+    </section>
+
+    <section>
+      <!-- start sections -->
+      <div class="container text-center">
+        
+        <div class="lesson">
+            <a href="#"><h3 class="home-link"><i class="fa-solid fa-arrow-right"></i>الرئيسية </h3></a>
+            <h1 class="article-tiltle mb-3"> {{ article.title }}</h><br><hr>
+            <h1 class="article-tiltle mb-3"> {{ article.content | safe }}</h><br>
+        </div>
+
+     
+      <!-- end section -->
+    </section>
+
+   
+
+{% endblock content %}

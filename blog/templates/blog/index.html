@@ -1,0 +1,87 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  
+
+    <section>
+      <!-- start hero section -->
+      <div class="container">
+        <div class=" mt-5 hero">
+          <h1 class="mb-3" style="color: #5b8bdf;font-weight: bold;">فلاستر</h1>
+          <p>مدونة عربية متخصصة في دروس بايثون ، دجانغو، فلاتر </p>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="بحث" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">بحث</button>
+          </form>
+        </div>
+      </div>
+      <!-- end hero section -->
+    </section>
+
+    <section>
+      <!-- start sections -->
+      <div class="container text-center">
+        <div class="sections mt-5">
+          <h2 class="section-title mb-3">أحدث الدورات</h2>
+          <hr class="mb-4">
+          <div class="row">
+          {% for course in l_courses %}
+            <div class="col mb-3 mb-sm-2">
+              <div class="card bg-dark" style="width: 18rem; margin: auto;">
+                <h3 class="card-header">{{ course.title }}</h3>
+                <img src="{{ course.image.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <p class="card-text"></p>
+                  <a href="{% url 'courses:courses_list' %}" class="btn btn-primary">تصفح الدورة</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+
+          <a href="{% url 'courses:courses_list' %}"><button class="btn btn-primary m-3 w-75 mt-5" type="button">كل الدورات</button></a>
+            
+          </div>
+        </div>
+      </div>
+      <!-- end section -->
+    </section>
+
+    <section>
+      <!-- start articles section -->
+      <div class="container text-center">
+        <div class="sections mt-5">
+          <h2 class="section-title mb-3">احدت المقالاث</h2>
+          <hr class="mb-4">
+          <div class="row">
+            <div class="col mb-3 mb-sm-0">
+              <div class="card bg-black" style="width: 18rem; margin: auto;">
+                <img src="{% static "images/python.png" %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-3 mb-sm-0">
+              <div class="card bg-black" style="width: 18rem; margin: auto;">
+                <img src="{% static "images/python.png" %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-3 mb-sm-0">
+              <div class="card bg-black" style="width: 18rem; margin: auto;">
+                <img src="{% static "images/python.png" %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end articles section -->
+    </section>
+
+{% endblock content %}
