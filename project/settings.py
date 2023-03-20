@@ -31,8 +31,11 @@ SECRET_KEY = '6Ec717B9Dbbbf28711117B299A5E4E8C2Eee73B3Bcd38Fed'
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['flustter.herokuapp.com']
-
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    '.localhost',
+    '.herokuapp.com'
+]
 
 # Application definition
 
@@ -84,25 +87,21 @@ TEMPLATES = [
     },
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 WSGI_APPLICATION = 'project.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-MAX_CONN_AGE = 600
-
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+     'default': {
+         'ENGINE': 'django.db.backends.sqlite3',
+         'NAME': BASE_DIR / 'db.sqlite3',
+     }
+ }
 
+
+# Heroku: Update database configuration from $DATABASE_URL.
+import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
-
 
 
 # Password validation
@@ -138,16 +137,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-
 STATIC_URL = '/static/'
 
+LOGIN_REDIRECT_URL = '/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    '/var/www/static/',
-]
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
@@ -173,5 +168,5 @@ CKEDITOR_CONFIGS = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
+
 django_heroku.settings(locals())
