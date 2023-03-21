@@ -9,15 +9,18 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+
 import django_heroku
 import dj_database_url
 from decouple import config
 import os
 from pathlib import Path
+import dj_database_url
+import django_heroku
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 IS_HEROKU = "DYNO" in os.environ
 
@@ -25,14 +28,12 @@ IS_HEROKU = "DYNO" in os.environ
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '47823Bef80B47Aa4Ab122Af916F3F56Fa13A619D8Eee4357369A178230C291741Cde30Fe0D11048C7880977Bc626104D44Fe'
+SECRET_KEY = config('SECRET_KEY', '47823Bef80B47Aa4Ab122Af916F3F56Fa13A619D8Eee4357369A178230C291741Cde30Fe0D11048C7880977Bc626104D44Fe')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-
-ALLOWED_HOSTS = ['flustter.herokuapp.com','https://flustter.herokuapp.com/']
-
+ALLOWED_HOSTS = ['flustter.herokuapp.com']
 
 # Application definition
 
@@ -51,7 +52,6 @@ INSTALLED_APPS = [
     'contact',
     'bootstrap4',
     'ckeditor',
-
 ]
 
 MIDDLEWARE = [
@@ -84,16 +84,8 @@ TEMPLATES = [
     },
 ]
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'collectstatic')
-STATIC_URL = '/static/'
-
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 WSGI_APPLICATION = 'project.wsgi.application'
-
 
 LOGGING = {
     'version': 1,
@@ -146,20 +138,8 @@ LOGGING = {
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-MAX_CONN_AGE = 600
-
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-
-
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -195,11 +175,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+# تحديد تفاصيل تخزين الوسائط الثابتة
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
 
-
-
-
-
+# تفاصيل الوسائط الثابتة لجميع التطبيقات
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
@@ -232,4 +216,5 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 SECURE_HSTS_PRELOAD = True
 
-django_heroku.settings(locals())
+if IS_HEROKU:
+    django_heroku.settings(locals())
