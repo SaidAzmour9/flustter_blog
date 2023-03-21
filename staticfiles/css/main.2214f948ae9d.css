@@ -1,0 +1,99 @@
+@font-face {
+    font-family: 'Tajawal';
+    src: url("../fonts/Tajawal-Regular.e3fe295c55a0.ttf") ;
+}
+
+html, body{
+    direction: rtl;
+    text-align: right;
+}
+a{
+    text-decoration: none;
+}
+
+body{
+    font-family: 'Tajawal', sans-serif;
+    background-color: rgb(49, 47, 47);
+    color: #fff;
+}
+
+.hero{
+    margin: auto;
+    text-align: center;
+}
+
+
+.hero h1 {
+    color: #5b8bdf;
+}
+
+footer{
+    background-color: rgb(2, 2, 2);
+    
+}
+
+
+.footer-content {
+    display: flex;
+    margin: 50px 0 0 0;
+    padding: 50px 0;
+    justify-content: space-between;
+
+}
+.footer-links {
+    width: 45%;
+    text-align: center;
+    text-decoration: none;
+}
+footer h5{
+    padding-bottom: 5px;
+    text-align: center;
+    color: gray;
+}
+
+.footer-links ul{
+    display: inline-block;
+}
+
+.about-me {
+    
+    width: 45%;
+    color: #fff;
+    text-align: center;
+}
+
+
+.about-img{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: 2px solid #cddc39;
+    filter: drop-shadow(0 0 8px #ff5722);
+}
+
+.lesson img{
+    max-width: 90%;
+    
+}
+
+form{
+    width: 70% ;
+     margin: 50px auto;
+     
+}
+
+@media only screen and (max-width: 722px) {
+    .footer-content {
+        display: block;
+        
+    }
+    .footer-links{
+        width: 90%;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+    .about-me{
+        width: 90%;
+        margin: auto;
+    }
+  }
