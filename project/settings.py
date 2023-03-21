@@ -28,7 +28,7 @@ IS_HEROKU = "DYNO" in os.environ
 SECRET_KEY = '47823Bef80B47Aa4Ab122Af916F3F56Fa13A619D8Eee4357369A178230C291741Cde30Fe0D11048C7880977Bc626104D44Fe'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 ALLOWED_HOSTS = ['flustter.herokuapp.com','https://flustter.herokuapp.com/']
