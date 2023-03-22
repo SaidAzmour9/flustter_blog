@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'contact',
     'bootstrap4',
     'ckeditor',
+    'favicon',
 ]
 
 MIDDLEWARE = [
@@ -184,6 +185,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+FAVICON_PATH = STATIC_URL + 'images/favicon.ico'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")

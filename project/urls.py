@@ -28,7 +28,7 @@ urlpatterns = [
     path('course/', include('courses.urls', namespace='courses')),
     path('contact/', include('contact.urls', namespace='contact')),
     path('articles/', include('articles.urls', namespace='articles')),
-    
+    path('favicon.ico', include('favicon.urls')),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
