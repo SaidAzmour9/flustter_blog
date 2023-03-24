@@ -5,7 +5,7 @@ from django.utils import timezone
 
 def image_upload(instance, filename):
     imagename , extention = filename.split(".")
-    return "articles/%s.%s"%(instance.id,extention)
+    return "articles/%s.%s"%(instance.slug,extention)
 
 
 class Article(models.Model):
