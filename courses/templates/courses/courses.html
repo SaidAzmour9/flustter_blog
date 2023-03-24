@@ -30,12 +30,10 @@
             {% for course in courses %}
               <div class="col mb-3 mb-sm-2">
               <div class="card bg-dark" style="width: 18rem; margin: auto;">
-                <h3 class="card-header">دورة بايثون</h3>
-                <img src="{% static "images/python.png" %}" class="card-img-top" alt="...">
+                <h3 class="card-header">{{ course.title }}</h3>
+                <img src="{{ course.image.url }}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <p class="card-text">يتتي تتسه ستستستس ستستتست ستصعص سااسالاي اياايا استستتس تتتسست استستست.</p>
-                  <small style="color: gray;" >31 درس</small><br>
-                  <a href="{% url 'courses:course_detail' course.slug %}" class="btn btn-primary">استستس</a>
+                  <a href="{% url 'courses:course_detail' course.slug %}" class="btn btn-primary">متابعة الكورس</a>
                 </div>
               </div>
             </div>
