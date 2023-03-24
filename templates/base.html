@@ -9,46 +9,51 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css" >
     <link href="{% static 'css/course.css' %}" rel="stylesheet" type="text/css" >
-    <title>Document</title>
+    <title>فلاستر</title>
+    <meta name="description" content="فلاستر هو موقع عربي لتعليم البرمجة باللغة العربية مجانا">
 </head>
 <body>
     <header>
         <!-- start navbar -->
-        <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
-            <div class="container">
-              <a class="navbar-brand" href="#">
-                <img src="{% static 'images/logo.png' %}" alt="Bootstrap" width="80" height="27">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div class="container">
+            <a class="navbar-brand" href="{% url 'blog:home' %}">
+              <img src="{% static 'images/logo.png' %}" alt="Flustter" width="80" height="27">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'blog:home' %}">الرئيسية</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    دورات
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {% for course in courses %}
+                      <li><a class="dropdown-item" href="{% url 'courses:course_detail' course.slug %}">{{ course.title }}</a></li>
+                    {% endfor %}
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'blog:home' %}">مقالات</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'blog:about' %}">من نحن</a>  
+                </li>
                 
-              </a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'blog:home' %}">الرئيسية</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'blog:home' %}">مقالات</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'courses:courses_list' %}">دورات</a>  
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'blog:about' %}">من نحن</a>  
-                  </li>
-            
-                  
-                </ul>
-                    {% if request.user.is_authenticated %}  
-                            <a href="{%url 'accounts:profile' %}"><button type="button" class="btn btn-primary btn-lg">{{user.username}}</button></a>
-                        {% else %}
-                        <a href="{% url 'accounts:login' %}"><button type="button" class="btn btn-primary btn-lg">دخول</button></a>
-
-                      {% endif %}
-              </div>
+              </ul>
+              {% if request.user.is_authenticated %}  
+                <a href="{%url 'accounts:profile' %}"><button type="button" class="btn btn-primary btn-lg">{{user.username}}</button></a>
+              {% else %}
+                <a href="{% url 'accounts:login' %}"><button type="button" class="btn btn-primary btn-lg">دخول</button></a>
+              {% endif %}
             </div>
-          </nav>
+          </div>
+        </nav>
         <!-- end navbar -->
     </header>
    
@@ -64,8 +69,10 @@
           <div class="about-me">
             <img class="about-img" src="{% static "images/python.png" %}" alt="">
             <div class="about-content">
-              <h3>عربية متخصصة</h3>
-              <p>مدونة عربية متخصصة  في دروس بايثون ، دجانغو  في دروس بايثون ، دجانغو  في دروس بايثون ، دجانغو في دروس بايثون ، دجانغو، فلاتر </p>
+              <h3>عن الموقع</h3>
+              <p>فلاستر هو موقع عربي لتعليم البرمجة باللغة العربية مجانا</p>
+              انضم الينا على التلغرام 
+              <a href=""><i class="fa-brands fa-telegram"></i></a>
             </div>
           </div>
           <div class="footer-links">
@@ -84,9 +91,8 @@
 
       <!-- end footer section -->
     </footer>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
 
 </body>
 </html>
