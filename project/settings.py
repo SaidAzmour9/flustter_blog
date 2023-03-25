@@ -225,16 +225,15 @@ SECURE_HSTS_PRELOAD = True
 AWS_ACCESS_KEY_ID = 'AKIA47NN4FPNCPAMDJTY'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'flustterbucket'
-AWS_S3_SIGNATURE_NAME = 's3v4',
 AWS_S3_REGION_NAME = 'eu-north-1'
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL =  None
-AWS_S3_VERITY = True
-AWS_URL='https://flustterbucket.s3.eu-north-1.amazonaws.com'
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_LOCATION = 'media'
 
-MEDIA_URL = AWS_URL + '/media/'
-
-STORAGES = {"default": "storages.backends.s3boto3.S3Boto3Storage"}
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'
 
 if IS_HEROKU:
     django_heroku.settings(locals())
