@@ -230,7 +230,7 @@ AWS_S3_REGION_NAME = 'eu-north-1'
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL =  None
 AWS_S3_VERITY = True
-AWS_URL='s3://flustterbucket'
+AWS_URL='https://flustterbucket.s3.eu-north-1.amazonaws.com'
 
 MEDIA_URL = AWS_URL + '/media/'
 
