@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'ckeditor',
     'favicon',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -189,8 +190,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 FAVICON_PATH = STATIC_URL + 'images/favicon.ico'
 
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -221,8 +221,6 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 SECURE_HSTS_PRELOAD = True
 
-if IS_HEROKU:
-    django_heroku.settings(locals())
 
 AWS_ACCESS_KEY_ID = 'AKIA47NN4FPNAYMFOJBL'
 AWS_SECRET_ACCESS_KEY = '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'
@@ -233,3 +231,6 @@ AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL =  None
 AWS_S3_VERITY = True
 STORAGES = {"default": "storages.backends.s3boto3.S3Boto3Storage"}
+
+if IS_HEROKU:
+    django_heroku.settings(locals())

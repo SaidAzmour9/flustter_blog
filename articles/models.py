@@ -8,7 +8,7 @@ from django.utils import timezone
 class Article(models.Model):
     title = models.CharField(max_length=100)
     content = RichTextField()
-    image = models.ImageField(upload_to="articles/images")
+    image = models.ImageField(upload_to="articles/")
     slug = models.SlugField(max_length=100,unique=True)
     article_date = models.DateTimeField(default=timezone.now)
 

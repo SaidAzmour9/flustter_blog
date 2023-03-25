@@ -20,7 +20,6 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=100)),
                 ('content', ckeditor.fields.RichTextField()),
-                ('image', models.ImageField(upload_to=articles.models.image_upload)),
                 ('slug', models.SlugField(max_length=100, unique=True)),
                 ('article_date', models.DateTimeField(default=django.utils.timezone.now)),
             ],
