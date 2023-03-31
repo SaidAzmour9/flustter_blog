@@ -38,8 +38,8 @@ ALLOWED_HOSTS = ['flustter.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-    'accounts',
     'whitenoise.runserver_nostatic',
+    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'courses',
-    'accounts',
     'articles',
     'contact',
     'bootstrap4',
