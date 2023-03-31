@@ -33,7 +33,7 @@
                 <img src="{{ course.image.url }}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <p class="card-text"></p>
-                  <a href="{% url 'courses:courses_list' %}" class="btn btn-primary">تصفح الدورة</a>
+                  <a href="{% url 'courses:course_detail' course.slug %}" class="btn btn-primary">تصفح الدورة</a>
                 </div>
               </div>
             </div>
