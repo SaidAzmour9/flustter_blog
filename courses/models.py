@@ -31,6 +31,8 @@ class Lesson(models.Model):
 
     def __str__(self):
         return self.title
+    class Meta:
+        ordering = ('-lesson_date', )
     
     def get_lessons_queryset(self):
         return reverse('courses:lesson_detail', kwargs={'course_slug':self.course.slug, 'lesson_slug':self.slug})
