@@ -11,7 +11,6 @@ def image_upload(instance, filename):
 
 class Course(models.Model):
     title = models.CharField(max_length=100)
-    description = RichTextField()
     content = RichTextField()
     image = models.ImageField(upload_to=image_upload)
     slug = models.SlugField(max_length=100,unique=True)
