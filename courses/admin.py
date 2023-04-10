@@ -3,7 +3,6 @@ from .models import Course, Lesson
 # Register your models here.
 
 class LessonAdmin(admin.ModelAdmin):
-    search_fields = ['title', 'course','slug']
     list_display = ('title', 'course')
     list_filter = (
         ('course', admin.RelatedOnlyFieldListFilter),
