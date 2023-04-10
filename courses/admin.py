@@ -10,4 +10,4 @@ class LessonAdmin(admin.ModelAdmin):
 
 admin.site.register(Course)
 admin.site.register(Lesson)
-admin.site.register(Lesson, LessonAdmin)
+admin.site.register(LessonAdmin)
