@@ -11,3 +11,6 @@ class LessonAdmin(admin.ModelAdmin):
 
 admin.site.register(Course)
 admin.site.register(Lesson, LessonAdmin)
+
+admin.site.site_header = "Flustter Admin"
+admin.site.site_title = "Flustter Admin Panel"
