@@ -33,7 +33,7 @@ SECRET_KEY = config('SECRET_KEY', '47823Bef80B47Aa4Ab122Af916F3F56Fa13A619D8Eee4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['flustter.herokuapp.com']
+ALLOWED_HOSTS = ['flustter.com', 'www.flustter.com']
 
 # Application definition
 
