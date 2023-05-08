@@ -31,6 +31,7 @@
               <div class="card bg-dark" style="width: 18rem; margin: auto;">
                 <h3 class="card-header">{{ course.title }}</h3>
                 <img src="{{ course.image.url }}" class="card-img-top" alt="...">
+                <p class="m-0 p-0 text-white-50">{{ course.content | truncatechars:150| safe }}</p>
                 <div class="card-body">
                   <a href="{% url 'courses:course_detail' course.slug %}" class="btn btn-primary">تصفح الدورة</a>
                 </div>

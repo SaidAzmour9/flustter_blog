@@ -15,7 +15,7 @@ class CourseListView(ListView):
 class CourseDetailView(DetailView):
     model = Course
     context_object_name = 'course'
-    l_courses: Course.objects.all()[0:3]
+    l_courses: Course.objects.all()[0:6]
     template_name='courses/course.html'
 
     def get_object(self, queryset=None):

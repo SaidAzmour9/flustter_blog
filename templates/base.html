@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.0/css/all.css">
     <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css" >
     <link href="{% static 'css/course.css' %}" rel="stylesheet" type="text/css" >
     <title>موقع فلاستر لتعلم البرمجة مجانا</title>
@@ -93,16 +94,25 @@
               <h3>عن الموقع</h3>
               <p>فلاستر هو موقع عربي لتعليم البرمجة باللغة العربية مجانا</p>
               <div class="social-icons">
-                <a href="https://facebook.com/flustter.official" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://instagram.com/flustter.official" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://t.me/flustter" target="_blank"><i class="fa-brands fa-telegram"></i></a>
-                <a href="https://discord.com/flustter" target="_blank"><i class="fa-brands fa-discord"></i></a>
+                <h4>تابع حسابتنا</h4>
+                <button class="btn btn-primary" type="button">
+                  <a style="color: white;" href="https://facebook.com/flustter.official" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                </button>
+                <button class="btn btn-danger" type="button">
+                  <a href="https://instagram.com/flustter.official" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </button>
+                <button class="btn btn-info" type="button">
+                  <a href="https://t.me/flustter" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+                </button>
+                <button class="btn btn-dark" type="button">
+                  <a href="https://discord.com/flustter" target="_blank"><i class="fa-brands fa-discord"></i></a>
+                </button>
               </div>
             </div>
           </div>
           <div class="footer-links">
             <h3>روابط هامة</h3>
-            <ul>
+            <ul style="list-style: none;">
               <li><a href="{% url 'blog:about' %}">من نحن</a></li>
               <li><a href="{% url 'blog:privacy' %}"> سياسة الخصوصية </a></li>
               <li><a href="{% url 'blog:terms' %}">الشروط والأحكام</a></li>
