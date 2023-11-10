@@ -31,9 +31,9 @@ IS_HEROKU = "DYNO" in os.environ
 SECRET_KEY = config('SECRET_KEY', '47823Bef80B47Aa4Ab122Af916F3F56Fa13A619D8Eee4357369A178230C291741Cde30Fe0D11048C7880977Bc626104D44Fe')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['flustter.com', 'www.flustter.com']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -191,12 +191,7 @@ FAVICON_PATH = STATIC_URL + 'images/favicon.ico'
 
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'azmour2016maroc@gmail.com'
-EMAIL_HOST_PASSWORD = 'tidypnrbptklpxvu'
-EMAIL_USE_TLS = True
-EMAIL_PORT = '587'
+
 
 CKEDITOR_CONFIGS = {
     'default': {
@@ -219,19 +214,6 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 SECURE_HSTS_PRELOAD = True
 
-
-AWS_ACCESS_KEY_ID = 'AKIA47NN4FPNCPAMDJTY'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'flustterbucket'
-AWS_S3_REGION_NAME = 'eu-north-1'
-AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
-}
-AWS_LOCATION = 'media'
-
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'
 
 if IS_HEROKU:
     django_heroku.settings(locals())
